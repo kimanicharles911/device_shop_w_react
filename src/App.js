@@ -1,9 +1,16 @@
+import {useState}  from "react";
 import './App.css';
+import ProductComponent from "./components/ProductComponent.jsx";
 
 function App() {
+
+  const [productData, setProductData] = [
+
+  ];
+
   return (
-    <div className="App">
-      
+    <div className="body-section">
+      <ProductComponent />
     </div>
   );
 }

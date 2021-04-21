@@ -9,14 +9,14 @@ import OppoPhoto from "./images/Oppo_Reno_5F.jpg";
 function App() {
 
   const [productsData, setProductsData] = useState([
-    {name: "Oppo", cost: 13, quantity: 4, photo: <img src={OppoPhoto} width="100px" height="100px"/> },
-    {name: "Redmi", cost: 15, quantity: 6, photo: <img src={RedmiPhoto} width="100px" height="100px" />},
-    {name: "Huawei", cost: 17, quantity: 8, photo: <img src={HuaweiPhoto} width="100px" height="100px" />}
+    {name: "Oppo", cost: 13, photo: <img src={OppoPhoto} width="100px" height="100px"/> },
+    {name: "Redmi", cost: 15, photo: <img src={RedmiPhoto} width="100px" height="100px" />},
+    {name: "Huawei", cost: 17, photo: <img src={HuaweiPhoto} width="100px" height="100px" />}
   ]);
 
   return (
     <div className="body-section">
-      {productsData.map(productData => <ProductComponent name={productData.name} cost={productData.cost} quantity={productData.quantity} photo={productData.photo}/>)}
+      {productsData.map(productData => <ProductComponent name={productData.name} cost={productData.cost} photo={productData.photo}/>)}
       {/* <p><img src={iPhone} /></p> */}
     </div>
   );

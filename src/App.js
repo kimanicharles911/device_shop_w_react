@@ -24,9 +24,13 @@ function App() {
     return result += quantity;
   }, 0);
 
+  const bill = productsData.reduce((result, {cost, quantity = 0}) => {
+    return result += quantity * cost;
+  }, 0);
+
   return (
     <div className="body-section">
-      <div>🛒 {totalQuantity}</div>
+      <div>🛒 {totalQuantity} &nbsp; &nbsp; 💲 : {bill} </div>
       {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange}/>)}
     </div>
   );

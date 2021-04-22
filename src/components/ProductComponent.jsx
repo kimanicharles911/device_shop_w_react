@@ -1,26 +1,31 @@
 import {useState} from "react";
 
-const ProductComponent = ({name, cost, photo}) => {
+const ProductComponent = ({name, cost, photo, onQuantityChange }) => {
 
   const [prodQuantity, setProdQuantity] = useState(0);
 
   const increment = () => {
     setProdQuantity(prodQuantity + 1);
+    onQuantityChange({ name, quantity: prodQuantity + 1});
   };
 
   const decrement = () => {
-    if(prodQuantity > 0)
-    setProdQuantity(prodQuantity - 1);
+    if(prodQuantity > 0){
+      setProdQuantity(prodQuantity - 1);
+      onQuantityChange({ name, quantity: prodQuantity - 1});
+    }
   };
 
   return(
     <div className="product">
-      <p>{/* spacing */}</p>
+      <div>
+        <p>{/* spacing */}</p>
 
-      <div>{photo}</div>
-      <p>{name}</p>
-      <p>Cost: ${cost}</p>
-      Quantity: <button onClick={decrement}>-</button>&nbsp;<button>{prodQuantity}</button>&nbsp;<button onClick={increment}>+</button>&nbsp;<button>Add to Cart</button>
+        <div> &nbsp;&nbsp; {photo}</div>
+        <p> &nbsp; {name}</p>
+        <p> &nbsp; Cost: ${cost}</p>
+        &nbsp; Quantity:  <button onClick={decrement}>-</button>&nbsp;<button>{prodQuantity}</button>&nbsp;<button onClick={increment}>+</button>&nbsp;<button>Add to Cart</button>
+      </div>
     </div>
   );
 };

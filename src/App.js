@@ -28,18 +28,18 @@ function App() {
   const handleAddToCart = ( theQuantity) => {
     const newNumCart = [...numCart];
     const newSum = theQuantity;
-    newNumCart.push(newSum)
+    newNumCart.push(newSum);
     setNumCart(newNumCart);
   };
 
-  const totalQuantityTwo = numCart.reduce((x, y ) => {
+  const quantitySum = numCart.reduce((x, y ) => {
     return x + y;
   }, 0);
   
 
   return (
     <div className="body-section">
-      <div>🛒 {totalQuantityTwo} &nbsp; &nbsp; 💲 :  </div>
+      <div>🛒 {quantitySum} &nbsp; &nbsp; 💲 :  </div>
       {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange} onClickAddToCart={handleAddToCart}/>)}
     </div>
   );

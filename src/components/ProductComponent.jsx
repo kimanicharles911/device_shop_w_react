@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const ProductComponent = ({name, cost, photo, onQuantityChange }) => {
+const ProductComponent = ({name, cost, photo, onQuantityChange, onClickAddToCart }) => {
 
   const [prodQuantity, setProdQuantity] = useState(0);
 
@@ -16,6 +16,10 @@ const ProductComponent = ({name, cost, photo, onQuantityChange }) => {
     }
   };
 
+  const pushToCart = () => {
+    onClickAddToCart(prodQuantity)
+  };
+
   return(
     <div className="product">
       <div>
@@ -24,7 +28,7 @@ const ProductComponent = ({name, cost, photo, onQuantityChange }) => {
         <div> &nbsp;&nbsp; {photo}</div>
         <p> &nbsp; {name}</p>
         <p> &nbsp; Cost: ${cost}</p>
-        &nbsp; Quantity:  <button onClick={decrement}>-</button>&nbsp;<button>{prodQuantity}</button>&nbsp;<button onClick={increment}>+</button>&nbsp;<button>Add to Cart</button>
+        &nbsp; Quantity:  <button onClick={decrement}>-</button>&nbsp;<button>{prodQuantity}</button>&nbsp;<button onClick={increment}>+</button>&nbsp;<button onClick={pushToCart}>Add to Cart</button>
       </div>
     </div>
   );

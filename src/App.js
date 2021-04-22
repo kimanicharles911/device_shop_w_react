@@ -12,6 +12,7 @@ function App() {
     {name: "Redmi", cost: 15, photo: <img src={RedmiPhoto} width="100px" height="100px" alt="RedMi Photo" />, quantity: 0 },
     {name: "Huawei", cost: 17, photo: <img src={HuaweiPhoto} width="100px" height="100px" alt="Huawei Photo" />,  quantity: 0 }
   ]); 
+  const [numCart, setNumCart] = useState([]);
 
   const handleProductQuantityChange = ({ name, quantity}) => {
     const newProductList = [...productsData];
@@ -20,18 +21,26 @@ function App() {
     setProductsData(newProductList);
   };
 
-  const totalQuantity = productsData.reduce((result, {quantity = 0}) => {
-    return result += quantity;
-  }, 0);
-
   const bill = productsData.reduce((result, {cost, quantity = 0}) => {
     return result += quantity * cost;
   }, 0);
 
+  const handleAddToCart = ( theQuantity) => {
+    const newNumCart = [...numCart];
+    const newSum = theQuantity;
+    newNumCart.push(newSum)
+    setNumCart(newNumCart);
+  };
+
+  const totalQuantityTwo = numCart.reduce((x, y ) => {
+    return x + y;
+  }, 0);
+  
+
   return (
     <div className="body-section">
-      <div>🛒 {totalQuantity} &nbsp; &nbsp; 💲 : {bill} </div>
-      {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange}/>)}
+      <div>🛒 {totalQuantityTwo} &nbsp; &nbsp; 💲 :  </div>
+      {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange} onClickAddToCart={handleAddToCart}/>)}
     </div>
   );
 }

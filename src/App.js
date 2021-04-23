@@ -15,9 +15,9 @@ import AsusPhoto from "./images/Asus-ExpertBook-B950.jpg";
 function App() {
 
   const [productsData, setProductsData] = useState([
-    {name: "Oppo", cost: 13, photo: <img src={OppoPhoto} width="100px" height="100px" alt="Oppo Photo" />,  quantity: 0 },
-    {name: "Redmi", cost: 15, photo: <img src={RedmiPhoto} width="100px" height="100px" alt="RedMi Photo" />, quantity: 0 },
-    {name: "Huawei", cost: 17, photo: <img src={HuaweiPhoto} width="100px" height="100px" alt="Huawei Photo" />,  quantity: 0 },
+    {name: "Oppo", cost: 13, photo: <img src={OppoPhoto} width="100px" height="100px" alt="Oppo_Photo" />,  quantity: 0 },
+    {name: "Redmi", cost: 15, photo: <img src={RedmiPhoto} width="100px" height="100px" alt="RedMi_Photo" />, quantity: 0 },
+    {name: "Huawei", cost: 17, photo: <img src={HuaweiPhoto} width="100px" height="100px" alt="Huawei_Photo" />,  quantity: 0 },
     {name: "IPhone", cost: 23 , photo: <img src={IPhonePhoto} width="100px" height="100px" alt="IPhone Photo" />,  quantity: 0 },
     {name: "Xiaomi", cost: 17 , photo: <img src={XiaomiPhoto} width="100px" height="100px" alt="Xiaomi Photo" />,  quantity: 0 },
     {name: "Samsung S7", cost: 21 , photo: <img src={SamsungS7Photo} width="100px" height="100px" alt="Samsung S7 Photo" />,  quantity: 0 },
@@ -28,7 +28,8 @@ function App() {
   ]); 
   const [numCart, setNumCart] = useState([]);
   const [numBill, setNumBill] = useState([]);
-  const [checkoutAmount, setCheckoutAmount] = useState(0);
+  const [checkoutAmount, setCheckoutAmount] = useState();
+  const [arrCheckoutAmount, setArrCheckoutAmount] = useState([]);
 
   const handleProductQuantityChange = ({ name, quantity}) => {
     const newProductList = [...productsData];
@@ -37,11 +38,20 @@ function App() {
     setProductsData(newProductList);
   };
 
-  const handleAddToCart = ( theQuantity, isBill) => {
+  const handleAddToCart = ( theQuantity, name, cost ) => {
     const newNumCart = [...numCart];
     const newSum = theQuantity;
     newNumCart.push(newSum);
     setNumCart(newNumCart);
+    
+    console.log("Kaka" + name);
+    const xProdIndex = productsData.findIndex(x => x.name === name);
+    console.log(theQuantity * productsData[xProdIndex].cost);
+    const newArrCheckoutAmount = [...arrCheckoutAmount];
+    const quantityByCost = theQuantity * productsData[xProdIndex].cost;
+    newArrCheckoutAmount.push(quantityByCost);
+    setArrCheckoutAmount(newArrCheckoutAmount);
+
   };
 
   const quantitySum = numCart.reduce((x, y ) => {
@@ -59,7 +69,6 @@ function App() {
   let pushProductCost = [];
   for(let i = 0; i < productsData.length; i++){
     pushProductCost.push(productsData[i].quantity * productsData[i].cost);
-    console.log(pushProductCost);
   }
   const sumProductCost = pushProductCost.reduce((x, y) => {
     return x +y;
@@ -69,12 +78,14 @@ function App() {
     setCheckoutAmount(bill)
   };
 
+  const numCheckoutAmount = arrCheckoutAmount.reduce((x, y ) => {
+    return x + y;
+  }, 0);
+
   return (
     <div className="body-section">
-      <div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛒 {quantitySum} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Total Bill 💲{sumProductCost} &nbsp; &nbsp; <button onClick={checkout}>Proceed to Checkout</button> {/* &nbsp; &nbsp; 💲 ignore: {bill} of {billTwo}&nbsp; &nbsp; 💲 ignore: {sumProductCost} */} </div>
+    <div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛒 {quantitySum} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Total Bill 💲{numCheckoutAmount} &nbsp; &nbsp; <button onClick={checkout}>Proceed to Checkout</button> {/* &nbsp; &nbsp; 💲 ignore: {bill} of {billTwo}&nbsp; &nbsp; 💲 ignore: {sumProductCost} */} </div>     
       {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange} onClickAddToCart={handleAddToCart}/>)}
-      <p></p>
-      <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#169;Charles Kimani</p>
     </div>
   );
 }

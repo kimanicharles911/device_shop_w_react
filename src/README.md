@@ -1,4 +1,9 @@
 # Device Shop is an application built with React 
+### ⚠️ Production branch: [Checkout Branch](https://github.com/kimanicharles911/device_shop_w_react/tree/checkout-feature) 
+```
+checkout-feature
+```
+
 ### Deployed at:
 
 ```

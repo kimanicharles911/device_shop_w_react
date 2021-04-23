@@ -17,7 +17,7 @@ const ProductComponent = ({name, cost, photo, onQuantityChange, onClickAddToCart
   };
 
   const pushToCart = () => {
-    onClickAddToCart(prodQuantity);
+    onClickAddToCart(prodQuantity, name);
   };
 
   return(

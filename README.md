@@ -17,6 +17,7 @@ src/
   App.js
   index.css
   index.js
+  README.md
 ```
 
 ## Usage

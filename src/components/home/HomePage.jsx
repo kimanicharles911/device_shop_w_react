@@ -62,7 +62,7 @@ const HomePage = () => {
 
   return (
     <div className="body-section">
-      <div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛒 {quantitySum} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Total Bill 💲{numCheckoutAmount} &nbsp; &nbsp; <button>Proceed to Checkout</button> </div>     
+      <div style={{ marginLeft: '29.5rem'}}> 🛒 {quantitySum} <span style={{ marginLeft: '4.7rem'}}></span>  Total Bill 💲{numCheckoutAmount} <span style={{ marginLeft: '0.8rem'}}></span> <button>Proceed to Checkout</button> </div>     
       {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange} onClickAddToCart={handleAddToCart}/>)}
     </div>
   );

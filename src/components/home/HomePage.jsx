@@ -55,14 +55,6 @@ const HomePage = () => {
   const quantitySum = arrNumCart.reduce((x, y ) => {
     return x + y;
   }, 0);
-  
-  let pushProductCost = [];
-  for(let i = 0; i < productsData.length; i++){
-    pushProductCost.push(productsData[i].quantity * productsData[i].cost);
-  }
-  const sumProductCost = pushProductCost.reduce((x, y) => {
-    return x +y;
-  }, 0);
 
   const numCheckoutAmount = arrCheckoutAmount.reduce((x, y ) => {
     return x + y;
@@ -70,7 +62,7 @@ const HomePage = () => {
 
   return (
     <div className="body-section">
-      <div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛒 {quantitySum} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Total Bill 💲{numCheckoutAmount} &nbsp; &nbsp; <button>Proceed to Checkout</button> {/* &nbsp; &nbsp; 💲 ignore: {bill} of {billTwo}&nbsp; &nbsp; 💲 ignore: {sumProductCost} */} </div>     
+      <div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛒 {quantitySum} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Total Bill 💲{numCheckoutAmount} &nbsp; &nbsp; <button>Proceed to Checkout</button> </div>     
       {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange} onClickAddToCart={handleAddToCart}/>)}
     </div>
   );

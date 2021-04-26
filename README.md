@@ -10,7 +10,12 @@ deviceshop.netlify.app
 ```
 src/
   components/
-    ProductComponent.jsx
+    checkout/
+      CheckoutPage.jsx
+    home/
+      components/
+        ProductComponent.jsx
+      HomePage.jsx
   images/
     ...  
   App.css
@@ -24,7 +29,8 @@ src/
 ### Install dependencies
 
 ```
-npm install
+npm i
+npm i react-router-dom
 ```
 
 ### Run React dev server (http://localhost:3000)

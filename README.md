@@ -55,3 +55,8 @@ npm run build
 ```
 npx create-react-app device_shop_w__react
 ```
+### Helpful Resources
+
+```
+https://fontawesome.com/how-to-use/on-the-web/using-with/react
+```

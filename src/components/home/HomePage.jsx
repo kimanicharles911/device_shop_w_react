@@ -1,4 +1,5 @@
-import {useState}  from "react";
+import {useState, useContext}  from "react";
+import {CheckoutContext} from "../../contexts/CheckoutContext.jsx";
 import {Link} from "react-router-dom";
 import '../../App.css';
 import ProductComponent from "./components/ProductComponent.jsx";
@@ -28,7 +29,7 @@ const HomePage = () => {
     {name: "Asus", cost: 135 , photo: <img src={AsusPhoto} width="100px" height="100px" alt="Asus_Photo" />,  quantity: 0 }
   ]); 
   const [arrNumCart, arrSetNumCart] = useState([]);
-  const [arrCheckoutAmount, setArrCheckoutAmount] = useState([]);
+  const {arrCheckoutAmount, setArrCheckoutAmount} = useContext(CheckoutContext);
 
   const handleProductQuantityChange = ({ name, quantity}) => {
     const newProductList = [...productsData];
@@ -43,9 +44,7 @@ const HomePage = () => {
     newArrNumCart.push(newSum);
     arrSetNumCart(newArrNumCart);
     
-    console.log("Kaka" + name);
     const xProdIndex = productsData.findIndex(x => x.name === name);
-    console.log(theQuantity * productsData[xProdIndex].cost);
     const newArrCheckoutAmount = [...arrCheckoutAmount];
     const quantityByCost = theQuantity * productsData[xProdIndex].cost;
     newArrCheckoutAmount.push(quantityByCost);

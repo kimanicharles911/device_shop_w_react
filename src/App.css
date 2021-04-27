@@ -10,10 +10,9 @@
   position: absolute;
   top: 44px;
   right: 771px;
-  border-radius: 450%;
-  line-height: 30px;
+  border-radius: 50%;
+  line-height: 26px;
   color: #fff;
   font-size: 1.05rem;
-  animation: bounceIn 700ms;
   background: #f08804;
 }

@@ -1,5 +1,7 @@
 import {useState}  from "react";
 import {Link} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import '../../App.css';
 import ProductComponent from "./components/ProductComponent.jsx";
 import RedmiPhoto from "../../images/redmi_note_10_5G_phone.jpeg";
@@ -64,7 +66,7 @@ const HomePage = () => {
   return (
     <div className="body-section">
       <div style={{ marginLeft: '29.5rem'}}> 
-        🛒 {quantitySum}                  <span style={{ marginLeft: '4.7rem'}}></span>  
+      <FontAwesomeIcon icon={faShoppingCart} size="lg"/> {quantitySum}                  <span style={{ marginLeft: '4.7rem'}}></span>  
         Total Bill 💲{numCheckoutAmount}  <span style={{ marginLeft: '0.8rem'}}></span> 
         <Link to="/checkout">
           <button>Proceed to Checkout</button>

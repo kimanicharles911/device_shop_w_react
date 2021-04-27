@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <CheckoutContext.Provider value={arrCheckoutAmount && arrCheckoutAmount.reduce}>
+        <CheckoutContext.Provider value={arrCheckoutAmount}>
           <Route path="/" exact component={HomePage}/>
           <Route path="/checkout" exact component={CheckoutPage}/>
         </CheckoutContext.Provider>

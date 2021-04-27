@@ -69,8 +69,10 @@ const HomePage = () => {
         <Link to="/checkout">
           <button>Proceed to Checkout</button>
         </Link> 
-      </div>     
+      </div>  
+      <div className="products__container">   
       {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange} onClickAddToCart={handleAddToCart}/>)}
+      </div>
     </div>
   );
 }

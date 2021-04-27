@@ -1,4 +1,5 @@
 import {useState} from "react";
+import "./ProductComponent.css";
 
 const ProductComponent = ({name, cost, photo, onQuantityChange, onClickAddToCart }) => {
 
@@ -25,8 +26,8 @@ const ProductComponent = ({name, cost, photo, onQuantityChange, onClickAddToCart
       <div>
         <p>{/* spacing */}</p>
 
-        <div> &nbsp;&nbsp; {photo}</div>
-        <p> &nbsp; {name}</p>
+        <div className="product__image"> &nbsp;&nbsp; {photo}</div>
+        <p className="product__title"> &nbsp; {name}</p>
         <p> &nbsp; Cost: ${cost}</p>
         &nbsp; Quantity:  <button onClick={decrement}>-</button>&nbsp;<button>{prodQuantity}</button>&nbsp;<button onClick={increment}>+</button>&nbsp;<button onClick={pushToCart}>Add to Cart</button>
       </div>

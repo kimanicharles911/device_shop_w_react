@@ -66,7 +66,7 @@ const HomePage = () => {
   return (
     <div className="body-section">
       <div style={{ marginLeft: '29.5rem'}}> 
-      <FontAwesomeIcon icon={faShoppingCart} size="lg"/> {quantitySum}                  <span style={{ marginLeft: '4.7rem'}}></span>  
+        <FontAwesomeIcon icon={faShoppingCart} size="lg"/> <span className="cart__counter">{quantitySum}</span>                  <span style={{ marginLeft: '4.7rem'}}></span>  
         Total Bill 💲{numCheckoutAmount}  <span style={{ marginLeft: '0.8rem'}}></span> 
         <Link to="/checkout">
           <button>Proceed to Checkout</button>

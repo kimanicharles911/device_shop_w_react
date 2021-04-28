@@ -1,5 +1,7 @@
 import {useState, useContext}  from "react";
 import {Link} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import '../../App.css';
 import {useCheckout} from "../../contexts/CheckoutContext.jsx";
 import ProductComponent from "./components/ProductComponent.jsx";
@@ -63,13 +65,15 @@ const HomePage = () => {
   return (
     <div className="body-section">
       <div style={{ marginLeft: '29.5rem'}}> 
-        🛒 {" "} {quantitySum} {" "}                  <span style={{ marginLeft: '4.7rem'}}></span>  
+        <FontAwesomeIcon icon={faShoppingCart} size="lg"/> {" "} <span className="cart__counter">{quantitySum}</span> {" "}                  <span style={{ marginLeft: '4.7rem'}}></span>  
         Total Bill 💲{numCheckoutAmount} {" "}  <span style={{ marginLeft: '0.8rem'}}></span> 
         <Link to="/checkout">
           <button>Proceed to Checkout</button>
         </Link> 
-      </div>     
+      </div>  
+      <div className="products__container">   
       {productsData.map((productData, i) => <ProductComponent key={i} name={productData.name} cost={productData.cost} photo={productData.photo} onQuantityChange={handleProductQuantityChange} onClickAddToCart={handleAddToCart}/>)}
+      </div>
     </div>
   );
 }

@@ -31,6 +31,9 @@ src/
 ```
 npm i
 npm i react-router-dom
+npm i @fortawesome/fontawesome-svg-core
+npm i @fortawesome/free-solid-svg-icons
+npm i @fortawesome/react-fontawesome
 ```
 
 ### Run React dev server (http://localhost:3000)
@@ -51,4 +54,9 @@ npm run build
 
 ```
 npx create-react-app device_shop_w__react
+```
+### Helpful Resources
+
+```
+https://fontawesome.com/how-to-use/on-the-web/using-with/react
 ```

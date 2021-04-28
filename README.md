@@ -59,4 +59,8 @@ npx create-react-app device_shop_w__react
 
 ```
 https://fontawesome.com/how-to-use/on-the-web/using-with/react
+
+Command line instructions to merger conflicting branches upon actual initialization of github pull requests.
+
+https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
 ```

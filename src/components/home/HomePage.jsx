@@ -1,7 +1,7 @@
 import {useState, useContext}  from "react";
-import {CheckoutContext} from "../../contexts/CheckoutContext.jsx";
 import {Link} from "react-router-dom";
 import '../../App.css';
+import {useCheckout} from "../../contexts/CheckoutContext.jsx";
 import ProductComponent from "./components/ProductComponent.jsx";
 import RedmiPhoto from "../../images/redmi_note_10_5G_phone.jpeg";
 import HuaweiPhoto from "../../images/huawei_p40_pro_phone.jpg";
@@ -29,7 +29,7 @@ const HomePage = () => {
     {name: "Asus", cost: 135 , photo: <img src={AsusPhoto} width="100px" height="100px" alt="Asus_Photo" />,  quantity: 0 }
   ]); 
   const [arrNumCart, arrSetNumCart] = useState([]);
-  const {arrCheckoutAmount, setArrCheckoutAmount} = useContext(CheckoutContext);
+  const {arrCheckoutAmount, setArrCheckoutAmount} = useCheckout();
 
   const handleProductQuantityChange = ({ name, quantity}) => {
     const newProductList = [...productsData];
@@ -63,8 +63,8 @@ const HomePage = () => {
   return (
     <div className="body-section">
       <div style={{ marginLeft: '29.5rem'}}> 
-        🛒 {quantitySum}                  <span style={{ marginLeft: '4.7rem'}}></span>  
-        Total Bill 💲{numCheckoutAmount}  <span style={{ marginLeft: '0.8rem'}}></span> 
+        🛒 {" "} {quantitySum} {" "}                  <span style={{ marginLeft: '4.7rem'}}></span>  
+        Total Bill 💲{numCheckoutAmount} {" "}  <span style={{ marginLeft: '0.8rem'}}></span> 
         <Link to="/checkout">
           <button>Proceed to Checkout</button>
         </Link> 

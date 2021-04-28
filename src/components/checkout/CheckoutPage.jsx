@@ -1,14 +1,16 @@
-import {useState, useContext} from "react";
-import {CheckoutContext} from "../../contexts/CheckoutContext.jsx";
+import {useCheckout} from "../../contexts/CheckoutContext.jsx";
 import '../../App.css';
 
 const CheckoutPage = () => {
+  const {arrCheckoutAmount} = useCheckout();
 
-  const {arrCheckoutAmount} = useContext(CheckoutContext);
+  const numCheckoutAmount = arrCheckoutAmount.reduce((x, y ) => {
+    return x + y;
+  }, 0);
 
   return (
     <div className="App">
-      <h1>Checkout Page {arrCheckoutAmount}</h1>
+      <h1>Checkout Page {numCheckoutAmount}</h1>
     </div>
   );
 }

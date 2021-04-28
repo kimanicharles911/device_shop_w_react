@@ -14,8 +14,11 @@ src/
       CheckoutPage.jsx
     home/
       components/
+        ProductComponent.css
         ProductComponent.jsx
       HomePage.jsx
+  contexts/
+    CheckoutContext.jsx
   images/
     ...  
   App.css
@@ -63,4 +66,6 @@ https://fontawesome.com/how-to-use/on-the-web/using-with/react
 Command line instructions to merger conflicting branches upon actual initialization of github pull requests.
 
 https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
+
+https://ardalis.com/how-to-grab-a-pull-request-locally-with-git-command-line/
 ```

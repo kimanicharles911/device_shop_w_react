@@ -17,7 +17,7 @@ const CheckoutPage = () => {
 
   const shippingFee = 5.43;
 
-  const amountToPay = numCheckoutAmount - dummyDiscount - shippingFee;
+  const amountToPay = numCheckoutAmount - dummyDiscount + shippingFee;
 
   return (
     <div className="checkout__body">

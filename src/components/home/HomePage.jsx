@@ -1,7 +1,7 @@
 import {useState, useContext}  from "react";
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import '../../App.css';
 import {useCheckout} from "../../contexts/CheckoutContext.jsx";
 import ProductComponent from "./components/ProductComponent.jsx";
@@ -68,7 +68,7 @@ const HomePage = () => {
         <FontAwesomeIcon icon={faShoppingCart} size="lg"/> {" "} <span className="cart__counter">{quantitySum}</span> {" "}                  <span style={{ marginLeft: '4.7rem'}}></span>  
         Total Bill 💲{numCheckoutAmount} {" "}  <span style={{ marginLeft: '0.8rem'}}></span> 
         <Link to="/checkout">
-          <button>Proceed to Checkout</button>
+          {quantitySum === 1 ? <button className="proceed__btn">Proceed to Checkout ({quantitySum} item)</button> : <button className="proceed__btn">Proceed to Checkout ({quantitySum} items)</button>}
         </Link> 
       </div>  
       <div className="products__container">   

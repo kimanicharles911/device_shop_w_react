@@ -3,7 +3,8 @@ import "./CheckoutPage.css";
 import VisaLogo from "../../images/payment-methods/visa.png";
 import PayPalLogo from "../../images/payment-methods/paypal.png";
 import MasterCardLogo from "../../images/payment-methods/mastercard.png";
-import ShoppingBagIcon from "../../images/payment-methods/shoppingbag.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 const CheckoutPage = () => {
   const {arrCheckoutAmount} = useCheckout();
@@ -11,6 +12,12 @@ const CheckoutPage = () => {
   const numCheckoutAmount = arrCheckoutAmount.reduce((x, y ) => {
     return x + y;
   }, 0);
+
+  const dummyDiscount =  0.1 * numCheckoutAmount;
+
+  const shippingFee = 5.43;
+
+  const amountToPay = numCheckoutAmount - dummyDiscount - shippingFee;
 
   return (
     <div className="checkout__body">
@@ -60,29 +67,28 @@ const CheckoutPage = () => {
               <tbody>
                 <tr>
                   <td>Items Total</td>
-                  <td align="right">$84.82</td>
+                  <td align="right">${numCheckoutAmount}</td>
                 </tr>
                 <tr>
                   <td>Discount 10%</td>
-                  <td align="right">-$1.89</td>
+                  <td align="right">${dummyDiscount}</td>
                 </tr>
                 <tr>
                   <td>Shipping fee</td>
-                  <td align="right">$5.43</td>
+                  <td align="right">${shippingFee}</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <td>Total</td>
-                  <td align="right">$88.36</td>
+                  <td align="right">{amountToPay}</td>
                 </tr>
               </tfoot>
             </table>
           </div>
 
           <div>
-            <button className="button button--full design-btn" type="submit"><svg className="icon">
-              </svg>Buy Now</button>
+            <button className="button button--full design-btn" type="submit"><FontAwesomeIcon icon={faShoppingBag} />Buy Now</button>
           </div>
         </form>
       </div>

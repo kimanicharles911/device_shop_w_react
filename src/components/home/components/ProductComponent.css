@@ -26,3 +26,17 @@
 .product__image img {
   border-radius: 10%;
 }
+.minus__btn{
+  color: white;
+  background-color: #FFA500;
+  padding: 1px 6px;
+  border-width: 0px;
+  border-radius: 50%; 
+}
+.plus__btn{
+  color: white;
+  background-color: #3CB371;
+  padding: 1px 6px;
+  border-width: 0px;
+  border-radius: 50%;
+}

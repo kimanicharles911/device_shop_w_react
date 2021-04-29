@@ -1,5 +1,7 @@
 import {useState} from "react";
 import "./ProductComponent.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 const ProductComponent = ({name, cost, photo, onQuantityChange, onClickAddToCart }) => {
 
@@ -29,7 +31,7 @@ const ProductComponent = ({name, cost, photo, onQuantityChange, onClickAddToCart
         <div className="product__image"> &nbsp;&nbsp; {photo}</div>
         <p className="product__title"> &nbsp; {name}</p>
         <p className="product__cost"> &nbsp; ${cost}</p>
-        &nbsp; Qty:  {prodQuantity} &nbsp;<button onClick={decrement}>-</button>&nbsp;&nbsp;<button onClick={increment}>+</button> <br></br><br></br>
+        &nbsp; Qty:  {prodQuantity} &nbsp;<button className="plus__btn" onClick={increment}><FontAwesomeIcon icon={faPlus} size="sm"/></button>&nbsp;&nbsp;<button className="minus__btn" onClick={decrement}><FontAwesomeIcon icon={faMinus} size="sm"/></button> <br></br><br></br>
         <button onClick={pushToCart}>🛒 Add to Cart</button>
       </div>
     </div>

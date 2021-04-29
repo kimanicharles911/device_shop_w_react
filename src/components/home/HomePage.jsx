@@ -1,7 +1,7 @@
 import {useState, useContext}  from "react";
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import '../../App.css';
 import {useCheckout} from "../../contexts/CheckoutContext.jsx";
 import ProductComponent from "./components/ProductComponent.jsx";

@@ -29,6 +29,7 @@ address {
   color: inherit;
   cursor: pointer;
   font: inherit;
+  text-decoration: none;
 }
 
 fieldset {

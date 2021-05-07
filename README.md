@@ -1,4 +1,5 @@
 # Device Shop is an application built with React 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/637001c9-3ecd-4de2-b2f9-3c781f5f2e12/deploy-status)](https://app.netlify.com/sites/deviceshop/deploys)
 ### Deployed at:
 
 ```

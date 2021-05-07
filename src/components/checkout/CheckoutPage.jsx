@@ -1,4 +1,5 @@
 import {useCheckout} from "../../contexts/CheckoutContext.jsx";
+import {Link} from "react-router-dom";
 import "./CheckoutPage.css";
 import VisaLogo from "../../images/payment-methods/visa.png";
 import PayPalLogo from "../../images/payment-methods/paypal.png";
@@ -88,7 +89,9 @@ const CheckoutPage = () => {
           </div>
 
           <div>
+            <Link to="/complete-order" style={{ textDecoration: "none"}}>
             <button className="button button--full design-btn" type="submit"><FontAwesomeIcon icon={faShoppingBag} />Buy Now</button>
+            </Link>
           </div>
         </form>
       </div>
